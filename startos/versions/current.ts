@@ -1,10 +1,10 @@
 import { IMPOSSIBLE, VersionInfo } from '@start9labs/start-sdk'
 
 export const current = VersionInfo.of({
-  version: '0.11.1:0',
+  version: '0.12.0:0',
   releaseNotes: {
     en_US:
-      'pactd 0.11.1 — a node with no identity no longer lists unrelated relay events under Bonds (create an identity to see your own bonds).',
+      'pactd 0.12.0 — public mode: the access token is no longer embedded in the served page. Read it from /data/.pact/token and enter it to manage the UI.',
   },
   migrations: {
     up: async ({ effects }) => {},

@@ -25,8 +25,13 @@ export const main = sdk.setupMain(async ({ effects }) => {
         PACT_PORT: String(uiPort),
         PACT_HOME: '/data/.pact',
         // No app-seed on StartOS to derive a secret from — pactd generates and
-        // persists its own bearer token; it's shown in the Pact UI.
+        // persists its own bearer token in /data/.pact/token.
         PACT_AUTO_TOKEN: 'true',
+        // StartOS interfaces (Tor / LAN, or a public reverse proxy) are reachable
+        // without a login, so never embed the token in the served page. The
+        // operator reads it from /data/.pact/token and enters it to manage the UI;
+        // agents take it from the same place.
+        PACT_PUBLIC_MODE: 'true',
       },
     },
     ready: {
