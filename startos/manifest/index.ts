@@ -5,7 +5,7 @@ export const manifest = setupManifest({
   id: 'pactd',
   title: 'Pact',
   license: 'Apache-2.0',
-  packageRepo: 'https://github.com/bobodread876/pact',
+  packageRepo: 'https://github.com/Start9-Community/pact-startos',
   upstreamRepo: 'https://github.com/bobodread876/pact',
   marketingUrl: 'https://bobodread876.github.io/pact-site/',
   donationUrl: null,
@@ -16,14 +16,6 @@ export const manifest = setupManifest({
       source: { dockerTag: 'ghcr.io/bobodread876/pactd:0.18.0' },
       arch: ['x86_64', 'aarch64'],
     },
-  },
-  alerts: {
-    install: null,
-    update: null,
-    uninstall: null,
-    restore: null,
-    start: null,
-    stop: null,
   },
   dependencies: {},
 })
