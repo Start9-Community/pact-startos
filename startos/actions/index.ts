@@ -43,7 +43,7 @@ const showToken = sdk.Action.withoutInput(
       title: i18n('Pact access token'),
       message: token
         ? i18n(
-            'Paste this into the Pact web UI to unlock it, or set it as PACT_TOKEN for your agent. Tip: opening the UI at <your-node-url>/#token=<this-value> unlocks it automatically. Keep it secret.',
+            'Paste this into the Pact web UI to unlock it, or set it as PACT_TOKEN for your agent. Tip: open the web UI at its address followed by /#token= and this token, and it unlocks automatically. Keep it secret.',
           )
         : i18n(
             'No token yet — start the service once so it generates its token (at /data/.pact/token), then run this action again.',
