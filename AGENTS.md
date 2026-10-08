@@ -18,17 +18,23 @@ Freshly scaffolded? Work the
 guide page, not a file in this repo — read it, don't copy it in.
 
 Keep `README.md` (technical reference for an AI support or administering agent) and
-`instructions.md` (end-user docs) in sync with your changes.
+`instructions.md` (end-user docs) in sync with your changes. This file restates neither:
+whoever changes the package has both, so it carries only what they don't — repo mechanics,
+a change that looks right and is not, where the next thing gets added, a naming trap, a
+build or test invocation particular to this repo.
 
-**Bugs and feature requests are GitHub issues on this repo** — file them as you find them.
+**Fix a defect you spot rather than reporting it** — you have the package open and the
+context to be sure. File **a GitHub issue on this repo** only when the call isn't yours to
+make: you can't pin the cause down, two defensible fixes exist, or it's too large to ride on
+the work in hand. An open issue is a report, not a queue — implement one when you're asked
+to or when it's labelled `Approved`, then close it with `Closes #<n>`.
+
 Don't record work in the repo instead: no `TODO.md`, no `NOTES.md`, no `PLAN.md`. What you
 verified, tried, and decided belongs in the commit message and the PR body.
 
 ## This repo
 
-- **`PACT_PUBLIC_MODE: 'true'` is a security control, not a display preference.** StartOS publishes the `ui` interface with no login, so without it pactd renders its bearer token into the served page — handing the agent and its wallet authority to anyone who loads the address. Never turn it off.
-- **`PACT_AUTO_TOKEN: 'true'` because there is no app seed here** for pactd to derive a token from; it generates and persists its own at `/data/.pact/token`.
-- **`show-token` mounts the volume read-only**; only `rotate-token` mounts it writable. Keep that split.
-- **Rotation restarts only a running daemon.** pactd resolves the token once at startup, so a stopped service picks the new one up on its next start — don't add an unconditional restart.
-- **The identity key on the `main` volume is the agent.** There is no export or rotation path for it; treat the volume as key material in anything you write.
 - **Default branch is `main`, not `master`.** Its CI workflows reference `main`; leave them.
+- **Never turn `PACT_PUBLIC_MODE` off** — without it pactd renders its bearer token into the login-less served page.
+- **Keep `show-token`'s volume mount read-only**; only `rotate-token` writes to the volume.
+- **Don't make `rotate-token` restart unconditionally** — a stopped service reads the new token on its next start.
