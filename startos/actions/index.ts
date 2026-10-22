@@ -54,6 +54,7 @@ const showToken = sdk.Action.withoutInput(
         copyable: true,
         qr: false,
         masked: true,
+        launchable: false,
       },
     }
   },
@@ -121,6 +122,7 @@ const rotateToken = sdk.Action.withoutInput(
         copyable: true,
         qr: false,
         masked: true,
+        launchable: false,
       },
     }
   },
