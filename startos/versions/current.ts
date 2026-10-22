@@ -1,13 +1,17 @@
 import { IMPOSSIBLE, VersionInfo } from '@start9labs/start-sdk'
 
 export const current = VersionInfo.of({
-  version: '0.18.0:4',
+  version: '0.18.0:5',
   releaseNotes: {
-    en_US: `- Show access token's unlock tip spells out the address to open.`,
-    es_ES: `- El consejo de desbloqueo de Mostrar token de acceso indica la dirección completa que hay que abrir.`,
-    de_DE: `- Der Entsperr-Tipp von „Zugriffstoken anzeigen“ nennt die vollständige Adresse, die zu öffnen ist.`,
-    pl_PL: `- Wskazówka odblokowania w akcji Pokaż token dostępu podaje pełny adres do otwarcia.`,
-    fr_FR: `- L’astuce de déverrouillage d’Afficher le jeton d’accès indique l’adresse complète à ouvrir.`,
+    en_US:
+      'Stops trusting certificates from a compromised certificate authority (eMudhra).',
+    es_ES:
+      'Deja de confiar en los certificados de una autoridad de certificación comprometida (eMudhra).',
+    de_DE:
+      'Vertraut Zertifikaten einer kompromittierten Zertifizierungsstelle (eMudhra) nicht mehr.',
+    pl_PL:
+      'Przestaje ufać certyfikatom przejętego urzędu certyfikacji (eMudhra).',
+    fr_FR: `Ne fait plus confiance aux certificats d'une autorité de certification compromise (eMudhra).`,
   },
   migrations: {
     up: async ({ effects }) => {},
