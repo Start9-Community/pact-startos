@@ -35,7 +35,7 @@
 
 ## Image and Container Runtime
 
-One upstream image, built through the root `Dockerfile`: a temporary layer that upgrades its CA store and sets `NODE_OPTIONS=--use-openssl-ca`, which comes out once upstream ships an image built on a fixed store and Node.
+One upstream image, consumed unmodified.
 
 | Property      | Value                        |
 | ------------- | ---------------------------- |
@@ -95,7 +95,7 @@ Bound on the `ui-multi` MultiHost over HTTP and not masked.
 - **You retrieve it from an action** inside the authenticated StartOS dashboard, and paste it into the interface's locked screen — or open the address with the token in the fragment to unlock in one step.
 - **Anyone who has the token has the agent**, including the ability to form bonds and spend through the connected wallet.
 
-Without public mode, publishing this interface would hand the token to anyone who loaded the page.
+Public mode also overrides upstream's opt-in for embedding the token (`PACT_UI_EMBED_TOKEN`), so no setting can put it in the page.
 
 ## Installation and First-Run Flow
 
@@ -152,7 +152,7 @@ The wallet connection is restored too, and it grants payment authority to whatev
 ## Limitations and Differences
 
 1. **The token is the only credential**, for the interface and the API alike, and it is retrieved through an action rather than shown on the page.
-2. **Public mode is forced on.** It cannot be turned off from here, and turning it off would leak the token to anyone loading the interface.
+2. **Public mode is forced on.** It cannot be turned off from here, and it keeps the token out of the page even if upstream's embed opt-in is set.
 3. **The backup reproduces the agent's identity and its wallet authority.**
 4. **No configuration surface in StartOS** — no file models, no settings actions. Identity, relays, and wallet are all set inside Pact.
 5. **The identity key cannot be exported or rotated from here.** Only the access token can.

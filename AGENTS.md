@@ -35,6 +35,6 @@ verified, tried, and decided belongs in the commit message and the PR body.
 ## This repo
 
 - **Default branch is `main`, not `master`.** Its CI workflows reference `main`; leave them.
-- **Never turn `PACT_PUBLIC_MODE` off** — without it pactd renders its bearer token into the login-less served page.
+- **Never turn `PACT_PUBLIC_MODE` off or set `PACT_UI_EMBED_TOKEN`** — public mode is what keeps the bearer token out of the login-less served page whatever else is set.
 - **Keep `show-token`'s volume mount read-only**; only `rotate-token` writes to the volume.
 - **Don't make `rotate-token` restart unconditionally** — a stopped service reads the new token on its next start.

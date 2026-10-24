@@ -13,11 +13,7 @@ export const manifest = setupManifest({
   volumes: ['main'],
   images: {
     pactd: {
-      source: {
-        dockerBuild: {
-          buildArgs: { IMAGE: 'ghcr.io/bobodread876/pactd:0.18.0' },
-        },
-      },
+      source: { dockerTag: 'ghcr.io/bobodread876/pactd:0.20.2' },
       arch: ['x86_64', 'aarch64'],
     },
   },
