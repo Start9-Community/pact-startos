@@ -20,8 +20,4 @@ The current pin lives in `startos/manifest/index.ts` at `images['pactd'].source.
 This package's version string tracks the upstream `pactd` version, so two files move together:
 
 1. Bump `dockerTag` in `startos/manifest/index.ts` to `ghcr.io/bobodread876/pactd:<new version>`.
-2. Edit `startos/versions/current.ts`:
-   - Set `version` to `'<new version>:0'` (the `:0` revision resets for a new upstream version; only bump the revision — `:1`, `:2`, … — when re-releasing the **same** `pactd` version with packaging-only changes).
-   - Update `releaseNotes.en_US` to describe what changed in this `pactd` release.
-
-A new file under `startos/versions/` is only needed if the bump carries a data migration; a plain version bump just edits `current.ts` in place.
+2. Set `version` in `startos/versions/current.ts` to `'<new version>:0'`.
