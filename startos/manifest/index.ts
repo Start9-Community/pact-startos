@@ -7,13 +7,13 @@ export const manifest = setupManifest({
   license: 'Apache-2.0',
   packageRepo: 'https://github.com/Start9-Community/pact-startos',
   upstreamRepo: 'https://github.com/bobodread876/pact',
-  marketingUrl: 'https://bobodread876.github.io/pact-site/',
+  marketingUrl: 'https://pactprotocol.dev/',
   donationUrl: null,
   description: { short, long },
   volumes: ['main'],
   images: {
     pactd: {
-      source: { dockerTag: 'ghcr.io/bobodread876/pactd:0.20.2' },
+      source: { dockerTag: 'ghcr.io/bobodread876/pactd:0.20.3' },
       arch: ['x86_64', 'aarch64'],
     },
   },
